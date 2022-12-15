@@ -1,0 +1,142 @@
+.formInput {
+  @include Size(100%, 42px);
+  padding: 5px 10px;
+  @include BorderRadius($FormControlRadius);
+  border: 1px solid $BorderDark;
+  background-color: transparent;
+
+  @include RespondTo(MobileDevices) {
+    height: 38px;
+  }
+}
+
+.formSelect {
+  @include Size(100%, 42px);
+  padding: 3px 7px;
+  @include BorderRadius($FormControlRadius);
+  border: 1px solid $BorderDark;
+  background-color: transparent;
+
+  @include RespondTo(MobileDevices) {
+    height: 38px;
+  }
+}
+
+.formTextarea {
+  @include Size(100%, 100px);
+  padding: 10px;
+  @include BorderRadius($FormControlRadius);
+  border: 1px solid $BorderDark;
+  resize: none;
+  background-color: transparent;
+
+  @include RespondTo(MobileDevices) {
+    height: 80px;
+  }
+}
+
+.formMain {
+  .formRow {
+    padding-bottom: 15px;
+
+    @include RespondTo(MobileDevices) {
+      padding-bottom: 10px;
+    }
+  }
+
+  &.formHorizontal {
+    .formRow {
+      @extend %FlexRow-StartBetween;
+
+      @include RespondTo(SmallDesktop) {
+        @include FlexDirection(column);
+      }
+
+      @include RespondTo(MobileDevices) {
+        flex-direction: unset !important;
+        flex-flow: wrap;
+      }
+
+      .formLabel {
+        width: 260px;
+        margin-right: 10px;
+        padding-top: 10px;
+        font-size: 0.9rem;
+
+        @include RespondTo(SmallDesktop) {
+          width: 100%;
+          margin-right: 0px;
+          margin-bottom: 5px;
+        }
+      }
+
+      .formField {
+        flex: 2;
+
+        @include RespondTo(SmallDesktop) {
+          flex: unset;
+          width: 100%;
+        }
+      }
+    }
+
+    .formAction {
+      margin-left: 270px;
+
+      @include RespondTo(SmallDesktop) {
+        margin-left: 0px;
+        text-align: center;
+      }
+
+      @include RespondTo(MobileDevices) {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .button {
+        @include RespondTo(MobileDevices) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.MuiAutocomplete-root {
+  .MuiFilledInput-root {
+    &.MuiFilledInput-underline {
+      background: none;
+      padding: 5px 20px 5px 5px !important;
+      border: 1px solid $BorderDark !important;
+      border-radius: 3px !important;
+      box-shadow: none;
+
+      &::after,
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+        background: none;
+      }
+
+      .MuiInputBase-input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.darkMode {
+  .formInput {
+    border-color: $BorderLight;
+  }
+
+  .formTextarea {
+    border-color: $BorderLight;
+  }
+  .formSelect {
+    border-color: $BorderLight;
+    color: $FontColorLight;
+  }
+}
